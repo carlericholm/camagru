@@ -20,37 +20,34 @@ session_start();
     display: flex;
     justify-content: space-around;
   }
+  header
+  {
+    width: 80%;
+    margin: auto;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px;
+  }
   #camera
   {
-    border: 2px solid red;
+    margin-top: 50px;
   }
   #aside
   {
-    border: 3px solid black;
-
+    margin-top: 50px;
   }
   .picResize
   {
     width: 100px;
     height: 100px;
   }
-  #menu
+  #camagru
   {
-    border: 1px solid black;
-    height: 100px;
-    display: flex;
-    justify-content: space-around;
-    margin-top: 25px;
+    text-decoration: none;
+    color: black;
   }
-  #menu div a
+  #camagru:hover
   {
-    font-size: 1.3em;
-  }
-  #gallery
-  {
-    margin-top: 25px;
-    border: 1px solid green;
-    text-align: center;
+    color: white;
   }
 </style>
 </head>
@@ -107,6 +104,9 @@ session_start();
 	?>
 	</div>
 </div>
+<?php
+  include 'footer.php';
+?>
 </body>
 </html>
 

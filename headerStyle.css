@@ -4,7 +4,7 @@ header
 }	
 .header
 {
-	border: 1px solid black;
+
 	height: 150px;
 }
 #divTitle
@@ -32,3 +32,4 @@ input
 {	
 	font-size: 0.7em;
 }
+

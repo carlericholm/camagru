@@ -76,7 +76,7 @@ while($donnees = $req->fetch())
 
 		if (!empty($_SESSION['login']))
 		{
-		echo "<div id=\"imgComm\"><p style=\"font-style: italic;\">Montage réalisé par " . $login . "</p><img src=". $src . " style=\"margin: 10px;\" id=" . $id. "></img><div class=\"commentaire\">
+		echo "<div id=\"imgComm\"><p style=\"font-style: italic;\">Montage réalisé par " . $login . "</p><img src=". $src . " style=\"margin: 10px; width: 300px\" id=" . $id. "></img><div class=\"commentaire\">
 		<textarea cols=\"45\" placeholder=\"Votre commentaire...\" id=\"textComm\"></textarea><img id=" . $id . " class=\"like\" src=" . $likeSrc ." style=\"width: 20px; height: 20px; position: relative; bottom: 5px; left: 5px;\"><span>".$nbr."</span><br/>
 		<button id=" . $id . " class=\"commButton\" name=\"commenter\">Commenter</button><br/><br/><div class=\"coms\">";
 		$reqBis = $bdd->prepare('SELECT * FROM commentaires WHERE picId = ? ORDER BY id DESC');
@@ -91,7 +91,7 @@ while($donnees = $req->fetch())
 		}
 		else
 		{
-			echo "<div id=\"imgComm\"><p style=\"font-style: italic;\">Montage réalisé par " . $login . "</p><img src=". $src . " style=\"margin: 10px;\" id=" . $id. "></img></div>";
+			echo "<div id=\"imgComm\"><p style=\"font-style: italic;\">Montage réalisé par " . $login . "</p><img src=". $src . " style=\"margin: 10px; width: 300px\" id=" . $id. "></img></div>";
 		}
 	}
 	$i++;

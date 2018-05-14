@@ -1,16 +1,61 @@
 <?php
 session_start();
-include 'indexTemp.php';
+ include 'header.php';
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 	<title>Creation utilisateur</title>
+	<link rel="stylesheet" type="text/css" href="headerStyle.css">
+	<style type="text/css">
+		  body
+  {
+    background-image: url(images/ocean.jpg);
+  }
+  #mainPage
+  {
+    display: flex;
+    justify-content: space-around;
+  }
+  header
+  {
+    width: 80%;
+    margin: auto;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px;
+  }
+  #camagru
+  {
+    text-decoration: none;
+    color: black;
+  }
+  #camagru:hover
+  {
+    color: white;
+  }
+  #formUser
+  {
+  	height: 34%;
+  	width: 20%;
+  	margin: auto;
+  	margin-top: 50px;
+  	position: relative;
+  	box-shadow: 3px 3px 3px;
+  }
+
+  #formUser input
+  {
+  	float: right;
+  	margin-right: 5px;
+  }
+
+
+	</style>
 </head>
 <body>
-<form method="post" action="user.php">
-	<fieldset><legend>S'inscrire</legend>
+<form method="post" action="user.php" id="formUser">
 		<label for="prenom">Prenom: </label><input type="text" id="prenom" name="prenom" placeholder="votre prenom" required=""></input><br/><br/>
 		<label for="nom">Nom: </label><input type="text" id="nom" name="nom" placeholder="votre nom" required=""></input><br/><br/>
 		<label for="pseudo">Login: </label><input type="text" id="pseudo" name="pseudo" placeholder="votre pseudo" required=""></input><br/><br/>
@@ -19,7 +64,6 @@ include 'indexTemp.php';
 		<label for="passconfirm">PasswordConfirm: </label><input type="password" id="password2" name="passConfirm" placeholder="Confirmez votre pass" required=""></input><span id="checkPass"></span>
 		<br/><br/>
 		<input type="submit" value="Envoyer" name="envoyer" id="sub"></input>
-	</fieldset>
 </form>
 <script type="text/javascript">
 var bouton = document.getElementById("sub");
@@ -36,6 +80,9 @@ sub.addEventListener("click", function(e) {
 });
 
 </script>
+<?php
+	include 'footer.php';
+?>
 </body>
 </html>
 
@@ -80,7 +127,7 @@ if ($check == 0)
 		'password' => hash("whirlpool", $_POST['password']),
 		'cle' => $cle
  	));
-	echo "Utilisateur ajouté a la base de données";
+	echo "Merci de vérifier votre boite mail afin d'activer votre compte";
 
  	//preparation du mail contenant le lien d'activation
 
@@ -100,13 +147,12 @@ if ($check == 0)
 
 	---------------
 	Ceci est un mail automatique, Merci de ne pas y répondre.';
- 	var_dump(mail($destinataire, $sujet, $message));
+ 	mail($destinataire, $sujet, $message);
 
 }
 
 ?>
 
-<a href="indexTemp.php">Réessayer</a>
 
 
 

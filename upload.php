@@ -63,7 +63,7 @@ if (isset($_POST['upload']))
 				'src' => $adress
  				));
 
-				header('Location: http://localhost:8888/camagru/indexTemp.php');
+				header('Location: http://localhost:8888/camagru/webcam.php');
 			}
 		}
 		else

@@ -19,8 +19,17 @@ include 'config/setup.php';
 		width: 80%;
 		margin: auto;
 		border-radius: 5px;
-		box-shadow: 2px 2px 2px;
+		box-shadow: 3px 3px 3px;
 	}
+	#camagru
+  	{
+   		text-decoration: none;
+   	 	color: black;
+  	}
+  	#camagru:hover
+  	{
+  		color: white;
+  	}
 	#mainPage
 	{
 		display: flex;
@@ -42,7 +51,7 @@ include 'config/setup.php';
 	}
 	#menu
 	{
-		border: 1px solid black;
+		/*border: 1px solid black;*/
 		height: 100px;
 		display: flex;
 		justify-content: space-around;
@@ -50,7 +59,7 @@ include 'config/setup.php';
 		margin-top: 25px;
 		align-items: center;
 		border-radius: 5px;
-		box-shadow: 2px 2px 2px;
+		box-shadow: 3px 3px 3px;
 		width: 80%;
 
 	}
@@ -63,13 +72,13 @@ include 'config/setup.php';
 	}
 	#menu div a:hover
 	{
-		color: blue;
+		color: white;
 	}
 	#gallery
 	{
 		margin: auto;
 		margin-top: 25px;
-		border: 1px solid green;
+		/*border: 1px solid green;*/
 		text-align: center;
 		width: 80%;
 	}
@@ -79,13 +88,13 @@ include 'config/setup.php';
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-around;
-		border: 3px solid red;
+		/*border: 3px solid red;*/
 		margin: auto;
 	}
 
 	#imgComm
 	{
-		border: 2px solid orange;
+		/*border: 2px solid orange;*/
 		margin: auto;
 	}
 /*	.commentaire
@@ -105,7 +114,7 @@ include 'config/setup.php';
 
 	.coms
 	{
-		border: 1px solid pink;
+		/*border: 1px solid pink;*/
 		text-align: left;
 		overflow: scroll;
 		height: 150px;
@@ -114,28 +123,38 @@ include 'config/setup.php';
 		word-wrap: break-word;
 	}
 
-
-
-
 </style>
 </head>
 <body>
 
 <?php 
 	include 'header.php';
-	
+	if (!empty($_SESSION['login']))
+	{
 ?>
 		<div id="menu">
 			<div><a href="webcam.php">Montage</a><br/></div>
-			<div><a href="#">Mon compte</a></div>
+			<div><a href="modifUser.php">Mon compte</a></div>
 		</div>
-		<div id="gallery">	
-			<!-- <h1>Bienvenue sur la gallerie</h1> -->
+		<div id="gallery">
 <?php
+	}
+	else
+	{
+		?>
+		<div id="menu">
+			<div><a href="user.php">Créer un compte</a><br/></div>
+		</div>
+		<div id="gallery">
+
+		<?php
+	}
 	 		include 'gallery.php';
 ?>
 		</div>
-
+<?php
+	include 'footer.php';
+?>
 </body>
 </html>
 

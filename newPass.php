@@ -7,60 +7,64 @@ include 'header.php';
 <head>
 	<meta charset="UTF-8">
 	<title>Réinitialisation mot de passe</title>
+<link rel="stylesheet" type="text/css" href="headerStyle.css">
 	<style type="text/css">
+		  body
+  {
+    background-image: url(images/ocean.jpg);
+  }
+  #mainPage
+  {
+    display: flex;
+    justify-content: space-around;
+  }
+  header
+  {
+    width: 80%;
+    margin: auto;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px;
+  }
+  #camagru
+  {
+    text-decoration: none;
+    color: black;
+  }
+  #camagru:hover
+  {
+    color: white;
+  }
+  #formUser
+  {
+  	height: 10%;
+  	width: 27%;
+  	margin: auto;
+  	margin-top: 50px;
+  	position: relative;
+  	box-shadow: 3px 3px 3px;
+  }
 
-	header
-	{
-		display: flex;
-	}
-	.header
-	{
-		border: 1px solid black;
-		height: 150px;
+  #formUser input
+  {
+  	margin-top: 15px;
+  	margin-left: 50px;
+  }
 
-	}
-	#divTitle
-	{
-		width: 90%;
-		text-align: center;
-	}
-	#user form
-	{
-		display: flex;
-		flex-direction: column;
-		margin: 50px;
-		justify-content: center;
-		align-items: center;
-	}
-	input
-	{
-		margin-bottom: 5px;
-	}
-	#lienPassOubli
-	{
-		font-size: 0.7em;
-	}
-	#newPass
-	{
-		margin-top: 25px;
-		border: 1px solid black;
-	}
-	#form2
-	{
-		margin-left: 30px;
-	}
+
 	</style>
 </head>
 <body>
 
 <div id="newPass">
-	<p>Entrez votre mail pour recevoir un nouveau mot de passe</p>
-	<form method="post" action="newPass.php" id="form2">
+	<form method="post" action="newPass.php" id="formUser">
+	<label for="newpass">Entrez votre mail pour recevoir un nouveau mot de passe</label><br/>
 		<input type="text" id="newpass" name="newpass"></input>
 		<input type="submit" value="Envoyer" name="envoyer"></input>
 	</form>
 </div>
-
+<?php
+  include 'footer.php';
+?>
 </body>
 </html>
 
@@ -93,15 +97,15 @@ if ($_POST['envoyer'] == "Envoyer")
 			Ceci est un mail automatique, Merci de ne pas y répondre.';
 
  			mail($destinataire, $sujet, $message);
- 			echo "Un email avec votre nouveau mot de passe vient de vous etre envoyé";
+ 			echo "<span style=\"color: green;\">Un email avec votre nouveau mot de passe vient de vous etre envoyé<span>";
 
 		}
 		else
-			echo "Email incorrect ou inexistant";
+			echo "<span style=\"color: red; width: 50%; margin: auto;\">Email incorrect ou inexistant</span>";
 
 	}
 	else
-		echo "Veuillez indiquer votre mail";
+		echo "<span style=\"color: red; width: 50%; margin: auto;\">Veuillez indiquer votre mail</span>";
 }
 
 

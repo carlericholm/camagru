@@ -20,21 +20,72 @@ $req->closeCursor();
 	<meta charset="UTF-8">
 	<title>Modifications utilisateur</title>
 	<link rel="stylesheet" type="text/css" href="headerStyle.css">
+	<style type="text/css">
+		  body
+  {
+    background-image: url(images/ocean.jpg);
+  }
+  #mainPage
+  {
+    display: flex;
+    justify-content: space-around;
+  }
+  header
+  {
+    width: 80%;
+    margin: auto;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px;
+  }
+  #camagru
+  {
+    text-decoration: none;
+    color: black;
+  }
+  #camagru:hover
+  {
+    color: white;
+  }
+  #formUser
+  {
+  	height: 15%;
+  	width: 25%;
+  	margin: auto;
+  	margin-top: 50px;
+  	position: relative;
+  	box-shadow: 3px 3px 3px;
+  }
+  #login
+  {
+  	margin-left: 60px;
+  }
+  #mail
+  {
+  	margin-left: 87px;
+  }
+  #pass
+  {
+  	margin-left: 85px;
+  }
+  #modifier
+  {
+  	float: right;
+  	margin-right: 40px;
+  }
+
+	</style>
 </head>
 <body>
 
 
-<form method="post" action="modifUserCheck.php">
-	<fieldset>
-		<legend>Modifier mes informations</legend>
-		<label for="login">Votre nom d'utilisateur:</label>
+<form method="post" action="modifUserCheck.php" id="formUser">
+		<label for="login">Votre nom d'utilisateur: </label>
 		<input type="text" name="login" id="login" value='<?php echo $login;?>'></input><br/>
 		<label for="mail">Votre adresse mail: </label>
 		<input type="text" name="mail" id="mail" value='<?php echo $email;?>'></input><br/>
 		<label for="pass">Votre mot de passe: </label>
-		<input type="text" name="pass" id="pass" value='<?php echo $password;?>'></input><br/>
+		<input type="text" name="pass" id="pass" required=""></input><br/>
 		<input type="submit" value="Modifier" name="modifier" id="modifier"></input><span id="checkEmpty"></span>
-	</fieldset>
 </form>
 <script type="text/javascript">
 var sub = document.getElementById('modifier');
@@ -53,27 +104,12 @@ sub.addEventListener("click", function(e) {
 });
 
 </script>
-
+<?php
+  include 'footer.php';
+?>
 </body>
 </html>
-<?php 
 
-// if ($_POST['modifier'] == "Modifier")
-// {
-// 	$newLogin = $_POST['login'];
-// 	$newMail = $_POST['mail'];
-// 	$newPass = hash("whirlpool", $_POST['pass']);
-// 	$req = $bdd->prepare("UPDATE users SET username = ?, mail = ?, password = ? WHERE username = ?");
-// 	$req->execute(array($newLogin, $newMail, $newPass, $_SESSION['login']));
-// 	$_SESSION['login'] = $newLogin;
-// 	$req->closeCursor();
-// 	header('Location: http://localhost:8888/camagru/headerStyle..php');
-//   	exit();	
-
-// }
-
-
-?>
 
 
 

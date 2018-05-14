@@ -16,14 +16,14 @@ if (isset($_POST['login']) && isset($_POST['pass']) && $_POST['login'] !== "" &&
 						}
 						else
 						{
-							echo "Vous devez activer votre compte!";
-							echo "<a href=indexTemp.php>Réessayer</a>";
+							header('Location: http://localhost:8888/camagru/indexTemp.php');
+  								exit();
 						}
 					}
 					else
 					{
-						echo "Désolé utilisateur ou mot de passe incorrect";
-						echo "<a href=indexTemp.php>Réessayer</a>";
+						header('Location: http://localhost:8888/camagru/indexTemp.php');
+  								exit();
 					}
 					$req->closeCursor();
 		}
